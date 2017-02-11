@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\begin{document}
+\usepackage{graphicx}
+Capital One Data Science Challenge \newline
+Q1.  Programmatically download and load into your favorite analytical tool the trip data for September 2015. Report how many rows and columns of data you have loaded.\newline
+A. I used the fread() function in R available in the data.table package, to import data from a source URL.\newline
+There were 1494926 rows and 21 columns loaded into R.\newline
+\newline
+Q2.Plot a histogram of the number of the trip distance ("Trip Distance"). Report any structure you find and any hypotheses you have about that structure.\newline
+A. On an initial plot displaying the trip distance across the entire data, I found that most trips concluded at a distance below 30 miles. I then filtered out the trips which lasted between 0 and 30 miles and only plot a histogram of those trips.\newline
+\begin{figure}
+  \includegraphics[width=\linewidth]{hist.jpg}
+  \caption{Histogram for trip distance.}
+  \label{fig:Histogram 1}
+\end{figure}
+\newline
+It is observed that most trips range between 0 and 10 miles, with journeys of 0-3 miles having most frequency. As trip distance increases, frequency of the trips decreases. Therefore trip distance and count of the trips is inversely related. This can possibly mean that Green Taxis are typically used for shorter rides.
+Only 467 trips have had trips longer than 30 miles. These can safely be assumed as outliers.\newline
+Hypothesis : Green Taxis are typically used for short commutes\newline
+\newline
+Q3. Report mean and median trip distance grouped by hour of day. We'd like to get a rough sense of identifying trips that originate or terminate at one of the NYC area airports. Can you provide a count of how many transactions fit this criteria, the average fair, and any other interesting characteristics of these trips.\newline
+A.  The mean trip distance grouped by hour sees a gradual decrease in value starting from 08:00 hour upto 20:00 hour, after which it increases again. There is a spike in hour 5 and 6\newline
+\begin{figure}
+  \includegraphics[width=\linewidth]{meantripdistance.jpg}
+  \caption{Mean trip distance}
+  \label{fig:Plot 2}
+\end{figure} 
+\newline
+\begin{figure}
+  \includegraphics[width=\linewidth]{mediantripdistance.jpg}
+  \caption{Median trip distance}
+  \label{fig:Plot 3}
+\end{figure}
+\newline
+
+\end{document}
